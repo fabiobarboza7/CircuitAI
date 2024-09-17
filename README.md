@@ -1,6 +1,7 @@
 # CircuitAI
 
 **Wait! It's not ready yet! 🚧**
+Join our [Discord](https://discord.gg/ABrXedeeV6) to discuss the project, contribute, ask questions and get updates.
 
 CircuitAI is a powerful TypeScript library that helps developers efficiently and scalably orchestrate multiple artificial intelligence agents.
 
