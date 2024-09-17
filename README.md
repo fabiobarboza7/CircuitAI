@@ -4,7 +4,7 @@ A powerful TypeScript library that helps developers efficiently and scalably orc
 
 ## Wait! It's not ready yet! 🚧
 
-### Join our [Discord](https://discord.gg/ABrXedeeV6) to discuss the project, contribute, ask questions and get updates.
+### Join our [Discord](https://discord.gg/DTX9Pgwj95) to discuss the project, contribute, ask questions and get updates.
 
 ## Concepts
 
