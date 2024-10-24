@@ -4,7 +4,7 @@ A powerful TypeScript library that helps developers efficiently and scalably orc
 
 ## Wait! It's not ready yet! 🚧
 
-### Join our [Discord](https://discord.gg/DTX9Pgwj95) to discuss the project, contribute, ask questions and get updates.
+### Join our [Discord](https://discord.gg/ABrXedeeV6) to discuss the project, contribute, ask questions and get updates.
 
 ## Concepts
 
@@ -22,7 +22,7 @@ An agent is a participant in the project. It has a name, goal, context, and rule
 
 The supervisor is an agent with special privileges. It can oversee other agents, provide guidance, and make decisions based on the agents' actions.
 
-### Task
+### Task (not ready yet)
 
 A task is a specific action that one or more agents can perform. It can be a simple task like "check credit score" or a complex task like "detect fraud in transactions." Tasks are optional and can be used to chain specific agents and actions together.
 
@@ -37,7 +37,7 @@ const managerAgent = new Agent({
   context: "You are the manager of the project...",
   action: async ({ content, llmAdapter }) => {
     // Call the LLM
-    const response = await llmAdapter?.chatCompletion({...});
+    const response = await llmAdapter?.createText({...});
     // Do something with the response
     return { output: response };
   },
@@ -59,10 +59,7 @@ const creditAgent = new Agent({
   context: "Your customer is buying a product...",
   rules: "You dont have to check credit score if the transaction ...",
   action: async ({ content, llmAdapter }) => {
-    const response = await llmAdapter?.chatCompletion({
-      messages: [{ role: "user_request", content: content.input }],
-    });
-
+    const response = await llmAdapter?.createText({ input: "...." });
     return { output: response };
   },
 });
@@ -75,12 +72,33 @@ const project = new Project({
 });
 // ...
 
-const response = await project.sendMessage({
-  input: "Check credit score of the customer {customer_id}",
+const response = await project.start({
+  input: "Check credit score of the customer 1234",
 });
 
 console.log(response);
-// Output: { output: "The credit score of the customer is 750", parsed: 750 }
+// {
+//   success: true,
+//   output: {
+//     finalResponse: 'The credit score of the customer is 750',
+//     circuits: [
+//       {
+//         agent: 'CreditAnalysis',
+//         input: 'Check credit score of the customer 1234',
+//         triagingInput: 'score of customer 1234',
+//         output: {....},
+//         proccessTime: 12 //ms
+//       },
+//       {
+//         agent: 'FraudAnalysis',
+//         input: 'Check credit score of the customer 1234',
+//         triagingInput: 'Any restrictions for customer 1234?',
+//         output: {....},
+//         proccessTime: 4 //ms
+//       }
+//     ]
+//   }
+// }
 ```
 
 ## Features
@@ -91,3 +109,13 @@ console.log(response);
 - 🤖 **LLM Integration**: Use LLMs to generate responses
 - 📦 **Extensible**: Create custom adapters for different LLMs
 - 📝 **Typescript**: Written in TypeScript
+
+## Contributors
+
+We would like to thank the following people for their contributions:
+
+- **Fabio Souza (@fabio.bcs)** - Project Lead & Software Engineer
+- **Bernardo Souza (@bernardoavsouza)** - Software Engineer
+- **Caio Rosas (@bycaiodesigner)** - Designer
+
+If you would like to contribute, please join our [Discord](https://discord.gg/ABrXedeeV6) and get in touch!
