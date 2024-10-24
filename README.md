@@ -1,4 +1,4 @@
-# CircuitAI
+![Prancheta 1](https://github.com/user-attachments/assets/c1ccf70b-95ed-4968-b8ee-040590fff276)
 
 A powerful TypeScript library that helps developers efficiently and scalably orchestrate multiple artificial intelligence agents.
 
